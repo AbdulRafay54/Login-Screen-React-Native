@@ -1,70 +1,252 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+// import React from "react";
+// import {
+//   View,
+//   Text,
+//   TextInput,
+//   TouchableOpacity,
+//   Image,
+//   StyleSheet,
+// } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+// export default function SignInScreen() {
+//   return (
+    
+//     <View style={styles.container}>
+//       <Text style={styles.title}>Sign in</Text>
+//       <View style={styles.subContainer}>
+//         <Text style={styles.newUserText}>
+//           New user? <Text style={styles.link}>Create an account</Text>
+//         </Text>
+//       </View>
 
-export default function HomeScreen() {
+//       <TextInput
+//         style={styles.input}
+//         placeholder="Email address"
+//       />
+
+//       <TouchableOpacity style={styles.button} activeOpacity={0.4}>
+//         <Text style={styles.buttonText}>Continue</Text>
+//       </TouchableOpacity>
+
+//       <Text style={styles.orText}>---------------- or -----------------</Text>
+
+//       <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
+//         <Image
+//           source={{
+//             uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
+//           }}
+//           style={styles.socialIcon}
+//         />
+//         <Text style={styles.socialButtonText}>Continue with Google</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity style={styles.socialButton} activeOpacity={0.1}>
+//         <Image
+//           source={{
+//             uri: "https://1.bp.blogspot.com/-S8HTBQqmfcs/XN0ACIRD9PI/AAAAAAAAAlo/FLhccuLdMfIFLhocRjWqsr9cVGdTN_8sgCPcBGAYYCw/s1600/f_logo_RGB-Blue_1024.png",
+//           }}
+//           style={styles.socialIcon}
+//         />
+//         <Text style={styles.socialButtonText}>Continue with Facebook</Text>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
+//         <Image
+//           source={{
+//             uri: "https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",
+//           }}
+//           style={styles.socialIcon}
+//         />
+//         <Text style={styles.socialButtonText}>Continue with Apple</Text>
+//       </TouchableOpacity>
+
+//       <Image
+//         source={{
+//           uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
+//         }}
+//         style={styles.bottomImage}
+//       />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#f4f5fa",
+//     alignItems: "center",
+//     paddingTop: 50,
+//   },
+//   title: {
+//     fontSize: 30,
+//     fontWeight: "bold",
+//     color: "#000",
+//   },
+//   subContainer: {
+//     flexDirection: "row",
+//     marginVertical: 10,
+//   },
+//   newUserText: {
+//     color: "#808080",
+//   },
+//   link: {
+//     color: "#1a73e8",
+//     fontWeight: "bold",
+//   },
+//   input: {
+//     width: "90%",
+//     height: 50,
+//     borderColor: "#ddd",
+//     borderWidth: 1,
+//     borderRadius: 5,
+//     paddingHorizontal: 10,
+//     marginVertical: 15,
+//     backgroundColor: "#fff",
+//   },
+//   button: {
+//     backgroundColor: "#000",
+//     width: "90%",
+//     height: 50,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     borderRadius: 5,
+//     marginBottom: 15,
+//   },
+//   buttonText: {
+//     color: "#fff",
+//     fontWeight: "bold",
+//   },
+//   orText: {
+//     marginVertical: 10,
+//     color: "#808080",
+//   },
+//   socialButton: {
+//     flexDirection: "row",
+//     alignItems: "center",
+//     backgroundColor: "#fff",
+//     width: "90%",
+//     height: 50,
+//     borderColor: "#ddd",
+//     borderWidth: 1,
+//     borderRadius: 30,
+//     marginVertical: 10,
+//     paddingHorizontal: 10,
+//   },
+//   socialIcon: {
+//     width: 20,
+//     height: 20,
+//     marginRight: 10,
+//   },
+//   socialButtonText: {
+//     fontWeight: "bold",
+//     color: "#000",
+//   },
+//   bottomImage: {
+//     width: 150,
+//     height: 150,
+//     marginTop: 20,
+//   },
+// });
+
+
+import React from 'react';
+import { View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
+
+const SignUpScreen = () => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <Text style={styles.title}>Explore now</Text>
+      <Text style={styles.subtitle}>Join SO today.</Text>
+
+      <TouchableOpacity style={styles.googleButton}>
+        <Text style={styles.buttonText}>Sign up with Google</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.appleButton}>
+        <Text style={styles.buttonText}>Sign up with Apple</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.orText}>or</Text>
+
+      <TouchableOpacity style={styles.createAccountButton}>
+        <Text style={styles.createButtonText}>Create account</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.alreadyText}>Already have an account?</Text>
+
+      <TouchableOpacity style={styles.signInButton}>
+        <Text style={styles.signInText}>Sign in</Text>
+      </TouchableOpacity>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
+    padding: 20,
+    backgroundColor: '#f5f5f5',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  subtitle: {
+    fontSize: 18,
+    marginBottom: 30,
+  },
+  googleButton: {
+    backgroundColor: '#4285F4',
+    width: '80%',
+    padding: 15,
+    borderRadius: 30,
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  appleButton: {
+    backgroundColor: '#000',
+    width: '80%',
+    padding: 15,
+    borderRadius: 30,
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  orText: {
+    marginVertical: 10,
+    fontSize: 16,
+    color: '#888',
+  },
+  createAccountButton: {
+    backgroundColor: '#1DA1F2',
+    width: '80%',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  createButtonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  alreadyText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  signInButton: {
+    padding: 10,
+  },
+  signInText: {
+    color: '#1DA1F2',
+    fontSize: 16,
   },
 });
+
+export default SignUpScreen;
+
