@@ -1,159 +1,10 @@
-// import React from "react";
-// import {
-//   View,
-//   Text,
-//   TextInput,
-//   TouchableOpacity,
-//   Image,
-//   StyleSheet,
-// } from "react-native";
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
 
-// export default function SignInScreen() {
-//   return (
-    
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Sign in</Text>
-//       <View style={styles.subContainer}>
-//         <Text style={styles.newUserText}>
-//           New user? <Text style={styles.link}>Create an account</Text>
-//         </Text>
-//       </View>
+export default function App() {
+  const [isSignedUp, setIsSignedUp] = useState(false); // State to toggle between screens
 
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Email address"
-//       />
-
-//       <TouchableOpacity style={styles.button} activeOpacity={0.4}>
-//         <Text style={styles.buttonText}>Continue</Text>
-//       </TouchableOpacity>
-
-//       <Text style={styles.orText}>---------------- or -----------------</Text>
-
-//       <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
-//         <Image
-//           source={{
-//             uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
-//           }}
-//           style={styles.socialIcon}
-//         />
-//         <Text style={styles.socialButtonText}>Continue with Google</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.socialButton} activeOpacity={0.1}>
-//         <Image
-//           source={{
-//             uri: "https://1.bp.blogspot.com/-S8HTBQqmfcs/XN0ACIRD9PI/AAAAAAAAAlo/FLhccuLdMfIFLhocRjWqsr9cVGdTN_8sgCPcBGAYYCw/s1600/f_logo_RGB-Blue_1024.png",
-//           }}
-//           style={styles.socialIcon}
-//         />
-//         <Text style={styles.socialButtonText}>Continue with Facebook</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
-//         <Image
-//           source={{
-//             uri: "https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",
-//           }}
-//           style={styles.socialIcon}
-//         />
-//         <Text style={styles.socialButtonText}>Continue with Apple</Text>
-//       </TouchableOpacity>
-
-//       <Image
-//         source={{
-//           uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
-//         }}
-//         style={styles.bottomImage}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#f4f5fa",
-//     alignItems: "center",
-//     paddingTop: 50,
-//   },
-//   title: {
-//     fontSize: 30,
-//     fontWeight: "bold",
-//     color: "#000",
-//   },
-//   subContainer: {
-//     flexDirection: "row",
-//     marginVertical: 10,
-//   },
-//   newUserText: {
-//     color: "#808080",
-//   },
-//   link: {
-//     color: "#1a73e8",
-//     fontWeight: "bold",
-//   },
-//   input: {
-//     width: "90%",
-//     height: 50,
-//     borderColor: "#ddd",
-//     borderWidth: 1,
-//     borderRadius: 5,
-//     paddingHorizontal: 10,
-//     marginVertical: 15,
-//     backgroundColor: "#fff",
-//   },
-//   button: {
-//     backgroundColor: "#000",
-//     width: "90%",
-//     height: 50,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     borderRadius: 5,
-//     marginBottom: 15,
-//   },
-//   buttonText: {
-//     color: "#fff",
-//     fontWeight: "bold",
-//   },
-//   orText: {
-//     marginVertical: 10,
-//     color: "#808080",
-//   },
-//   socialButton: {
-//     flexDirection: "row",
-//     alignItems: "center",
-//     backgroundColor: "#fff",
-//     width: "90%",
-//     height: 50,
-//     borderColor: "#ddd",
-//     borderWidth: 1,
-//     borderRadius: 30,
-//     marginVertical: 10,
-//     paddingHorizontal: 10,
-//   },
-//   socialIcon: {
-//     width: 20,
-//     height: 20,
-//     marginRight: 10,
-//   },
-//   socialButtonText: {
-//     fontWeight: "bold",
-//     color: "#000",
-//   },
-//   bottomImage: {
-//     width: 150,
-//     height: 150,
-//     marginTop: 20,
-//   },
-// });
-
-
-import React from 'react';
-import { View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
-
-const SignUpScreen = () => {
-  return (
+  const SignUpScreen = () => (
     <View style={styles.container}>
       <Text style={styles.title}>Explore now</Text>
       <Text style={styles.subtitle}>Join SO today.</Text>
@@ -168,7 +19,7 @@ const SignUpScreen = () => {
 
       <Text style={styles.orText}>or</Text>
 
-      <TouchableOpacity style={styles.createAccountButton}>
+      <TouchableOpacity style={styles.createAccountButton} onPress={() => setIsSignedUp(true)}>
         <Text style={styles.createButtonText}>Create account</Text>
       </TouchableOpacity>
 
@@ -179,7 +30,77 @@ const SignUpScreen = () => {
       </TouchableOpacity>
     </View>
   );
-};
+
+  const SignInScreen = () => (
+    <View style={styles.container}>
+      <Text style={styles.title}>Sign in</Text>
+      <View>
+        <Text>
+          New user? <Text>Create an account</Text>
+        </Text>
+      </View>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Email address"
+      />
+
+      <TouchableOpacity style={styles.button} activeOpacity={0.4}>
+        <Text style={styles.buttonText}>Continue</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.orText}>---------------- or -----------------</Text>
+
+      <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
+        <Image
+          source={{
+            uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
+          }}
+          style={styles.socialIcon}
+        />
+        <Text style={styles.socialButtonText}>Continue with Google</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.socialButton} activeOpacity={0.1}>
+        <Image
+          source={{
+            uri: "https://1.bp.blogspot.com/-S8HTBQqmfcs/XN0ACIRD9PI/AAAAAAAAAlo/FLhccuLdMfIFLhocRjWqsr9cVGdTN_8sgCPcBGAYYCw/s1600/f_logo_RGB-Blue_1024.png",
+          }}
+          style={styles.socialIcon}
+        />
+        <Text style={styles.socialButtonText}>Continue with Facebook</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.socialButton} activeOpacity={1}>
+        <Image
+          source={{
+            uri: "https://static.vecteezy.com/system/resources/previews/002/520/838/original/apple-logo-black-isolated-on-transparent-background-free-vector.jpg",
+          }}
+          style={styles.socialIcon}
+        />
+        <Text style={styles.socialButtonText}>Continue with Apple</Text>
+      </TouchableOpacity>
+
+      {/* Back button */}
+      <TouchableOpacity style={styles.backButton} onPress={() => setIsSignedUp(false)}>
+        <Text style={styles.backButtonText}>Back to Sign Up</Text>
+      </TouchableOpacity>
+
+      <Image
+        source={{
+          uri: "https://logosmarcas.net/wp-content/uploads/2020/09/Google-Emblema.png",
+        }}
+        style={styles.bottomImage}
+      />
+    </View>
+  );
+
+  return (
+    <>
+      {isSignedUp ? <SignInScreen /> : <SignUpScreen />}
+    </>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -246,7 +167,56 @@ const styles = StyleSheet.create({
     color: '#1DA1F2',
     fontSize: 16,
   },
+  input: {
+    width: '90%',
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginVertical: 15,
+    backgroundColor: '#fff',
+  },
+  button: {
+    backgroundColor: '#000',
+    width: '90%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    marginBottom: 15,
+  },
+  socialButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    width: '90%',
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 30,
+    marginVertical: 10,
+    paddingHorizontal: 10,
+  },
+  socialIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+  },
+  socialButtonText: {
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  backButton: {
+    marginTop: 20,
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: '#1DA1F2',
+  },
+  bottomImage: {
+    width: 50,
+    height: 50,
+    marginTop: 20,
+  },
 });
-
-export default SignUpScreen;
-
